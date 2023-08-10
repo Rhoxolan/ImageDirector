@@ -1,0 +1,29 @@
+<div class="mb-3">
+	<div class="row">
+		<div class="col">
+			<label class="form-label" for="ImageUrl">
+				Enter image URL:
+			</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-11 col-md-10 col-lg-9 col-xxl-8">
+			<input type="text" id="ImageUrl" name="ImageUrl" class="form-control" ng-model="imageUrl" />
+		</div>
+	</div>
+</div>
+<div class="mb-3">
+	<div class="row">
+		<div class="col-auto">
+			<button class="btn btn-outline-primary" ng-click="click()">
+				Upload Image
+			</button>
+		</div>
+	</div>
+</div>
+<div class="mb-3" class="mb-3" ng-show="uploadedImageUrl">
+	<div class="mb-1">
+	 Link to the uploaded image - <a href="{{uploadedImageUrl}}">{{uploadedImageUrl}}</a>
+	</div>
+	<img src="{{uploadedImageUrl}}" style='max-width: 100%; max-height: 500px;' alt="Uploaded Image">
+</div>

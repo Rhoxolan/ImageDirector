@@ -1,0 +1,26 @@
+<div class="mb-3">
+	<div class="row">
+		<div class="col">
+			<label class="form-label" for="ImageId">
+				Enter image Id
+			</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-6 col-md-5 col-lg-4 col-xxl-3">
+			<input type="number" id="ImageId" name="ImageId" class="form-control" ng-model="id"/>
+		</div>
+	</div>
+</div>
+<div class="mb-3">
+	<div class="row">
+		<div class="col-auto">
+			<button class="btn btn-outline-primary" id="searchImageBtn" ng-click="click()">
+				Search
+			</button>
+		</div>
+	</div>
+</div>
+<div class="mb-3" ng-show="imageUrl">
+	<img src="{{imageUrl}}" style='max-width: 100%; max-height: 500px;' alt="Image with id {{id}}">
+</div>
