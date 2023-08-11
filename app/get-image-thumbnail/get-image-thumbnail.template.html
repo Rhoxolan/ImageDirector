@@ -8,21 +8,24 @@
 	</div>
 	<div class="row">
 		<div class="col-6 col-md-5 col-lg-4 col-xxl-3">
-			<input type="number" id="DeletingImageId" name="DeletingImageId" class="form-control" />
+			<input type="number" id="DeletingImageId" name="DeletingImageId" class="form-control" ng-model="id"/>
 		</div>
 	</div>
 </div>
 <div class="mb-3">
 	<div class="row">
 		<div class="col-auto">
-			<button class="btn btn-outline-primary" id="getImageThumbnail100Btn">
+			<button class="btn btn-outline-primary" ng-click="get100()">
 				Get 100x100
 			</button>
 		</div>
         <div class="col-auto">
-			<button class="btn btn-outline-primary" id="getImageThumbnail300Btn">
+			<button class="btn btn-outline-primary" ng-click="get300()">
 				Get 300x300
 			</button>
 		</div>
 	</div>
+</div>
+<div class="mb-3" ng-show="imageUrl">
+	<img src="{{imageUrl}}" style='max-width: 100%; max-height: 500px;' alt="Image with id {{id}}">
 </div>
