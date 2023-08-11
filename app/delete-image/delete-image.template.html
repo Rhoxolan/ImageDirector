@@ -8,14 +8,14 @@
 	</div>
 	<div class="row">
 		<div class="col-6 col-md-5 col-lg-4 col-xxl-3">
-			<input type="number" id="ThumbnailedImageId" name="ThumbnailedImageId" class="form-control" />
+			<input type="number" id="ThumbnailedImageId" name="ThumbnailedImageId" class="form-control" ng-model="id"/>
 		</div>
 	</div>
 </div>
 <div class="mb-3">
 	<div class="row">
 		<div class="col-auto">
-			<button class="btn btn-outline-danger" id="deleteImageBtn">
+			<button class="btn btn-outline-danger" ng-click="click()">
 				Delete
 			</button>
 		</div>
