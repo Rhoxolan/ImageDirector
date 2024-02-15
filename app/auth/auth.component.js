@@ -23,8 +23,8 @@ angular.
       };
 
       $scope.register = function () {
-        if ($scope.userName && document.getElementById("Password").value > 0) {
-          $http.post("https://localhost:7050/api/register", {
+        if ($scope.userName && document.getElementById("Password").value.length > 0) {
+          $http.post("https://localhost:7050/api/account/register", {
             Login: $scope.userName,
             Password: document.getElementById("Password").value
           })
@@ -32,6 +32,7 @@ angular.
               document.getElementById("Password").value = '';
               sessionStorage.setItem(userNameKey, $scope.userName);
               sessionStorage.setItem(tokenKey, response.data.token);
+              $scope.isAuthorized = true;
               $scope.hasError = false;
               $scope.errorMessage = null;
             }, function (error) {
@@ -43,8 +44,8 @@ angular.
       }
 
       $scope.login = function () {
-        if ($scope.userName && document.getElementById("Password").value > 0) {
-          $http.post("https://localhost:7050/api/login", {
+        if ($scope.userName && document.getElementById("Password").value.length > 0) {
+          $http.post("https://localhost:7050/api/account/login", {
             Login: $scope.userName,
             Password: document.getElementById("Password").value
           })
@@ -52,6 +53,7 @@ angular.
               document.getElementById("Password").value = '';
               sessionStorage.setItem(userNameKey, $scope.userName);
               sessionStorage.setItem(tokenKey, response.data.token);
+              $scope.isAuthorized = true;
               $scope.hasError = false;
               $scope.errorMessage = null;
             }, function (error) {
