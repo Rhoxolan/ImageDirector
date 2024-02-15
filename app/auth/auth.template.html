@@ -2,14 +2,14 @@
     <div class="mb-3">
         <div class="row">
             <div class="col">
-                <label class="form-label" for="Login">
-                    Enter login
+                <label class="form-label" for="UserName">
+                    Enter username
                 </label>
             </div>
         </div>
         <div class="row">
             <div class="col-6 col-md-5 col-lg-4 col-xxl-3">
-                <input type="text" id="Login" name="Login" class="form-control" ng-model="login"/>
+                <input type="text" id="UserName" name="UserName" class="form-control" ng-model="userName"/>
             </div>
         </div>
     </div>
@@ -23,14 +23,14 @@
         </div>
         <div class="row">
             <div class="col-6 col-md-5 col-lg-4 col-xxl-3">
-                <input type="password" id="Password" name="Password" class="form-control" ng-model="password"/>
+                <input type="password" id="Password" name="Password" class="form-control"/>
             </div>
         </div>
     </div>
     <div class="mb-3">
         <div class="row">
             <div class="col-auto">
-                <button class="btn btn-outline-primary" ng-click="click()">
+                <button class="btn btn-outline-primary" ng-click="login()">
                     Login
                 </button>
             </div>
@@ -38,5 +38,22 @@
     </div>
 </div>
 <div ng-show="isAuthorized">
-
+    <div class="mb-3">
+        <div class="row">
+            <div class="col">
+                <h1>
+                    Hello, {{userName}}!
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <div class="row">
+            <div class="col-auto">
+                <button class="btn btn-outline-primary" ng-click="logout()">
+                    Logout
+                </button>
+            </div>
+        </div>
+    </div>
 </div>
