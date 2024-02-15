@@ -1,59 +1,69 @@
-<div ng-show="!isAuthorized">
-    <div class="mb-3">
-        <div class="row">
-            <div class="col">
-                <label class="form-label" for="UserName">
-                    Enter username
-                </label>
+<div ng-init="init()">
+    <div ng-show="!isAuthorized">
+        <div class="mb-3">
+            <div class="row">
+                <div class="col">
+                    <label class="form-label" for="UserName">
+                        Enter username
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 col-md-5 col-lg-4 col-xxl-3">
+                    <input type="text" id="UserName" name="UserName" class="form-control" ng-model="userName"/>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-6 col-md-5 col-lg-4 col-xxl-3">
-                <input type="text" id="UserName" name="UserName" class="form-control" ng-model="userName"/>
+        <div class="mb-3">
+            <div class="row">
+                <div class="col">
+                    <label class="form-label" for="Password">
+                        Enter password
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 col-md-5 col-lg-4 col-xxl-3">
+                    <input type="password" id="Password" name="Password" class="form-control"/>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="mb-3">
-        <div class="row">
-            <div class="col">
-                <label class="form-label" for="Password">
-                    Enter password
-                </label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6 col-md-5 col-lg-4 col-xxl-3">
-                <input type="password" id="Password" name="Password" class="form-control"/>
-            </div>
-        </div>
-    </div>
-    <div class="mb-3">
-        <div class="row">
-            <div class="col-auto">
-                <button class="btn btn-outline-primary" ng-click="login()">
-                    Login
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-<div ng-show="isAuthorized">
-    <div class="mb-3">
-        <div class="row">
-            <div class="col">
-                <h1>
-                    Hello, {{userName}}!
-                </h1>
+        <div class="mb-3">
+            <div class="row">
+                <div class="col-auto">
+                    <button class="btn btn-outline-primary" ng-click="login()">
+                        Login
+                    </button>
+                </div>
+                <div class="col-auto">
+                    <button class="btn btn-outline-primary" ng-click="register()">
+                        Register
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-    <div class="mb-3">
-        <div class="row">
-            <div class="col-auto">
-                <button class="btn btn-outline-primary" ng-click="logout()">
-                    Logout
-                </button>
+    <div ng-show="isAuthorized">
+        <div class="mb-3">
+            <div class="row">
+                <div class="col">
+                    <h1>
+                        Hello, {{userName}}!
+                    </h1>
+                </div>
             </div>
         </div>
+        <div class="mb-3">
+            <div class="row">
+                <div class="col-auto">
+                    <button class="btn btn-outline-primary" ng-click="logout()">
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mb-3" ng-show="hasError">
+        <span class="text-danger fw-bold">Error! {{errorMessage}}</span>
     </div>
 </div>
