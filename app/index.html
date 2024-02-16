@@ -30,10 +30,12 @@
         <upload-image></upload-image>
         <hr>
         <get-image></get-image>
-        <hr>
-        <get-image-thumbnail></get-image-thumbnail>
-        <hr>
-        <delete-image></delete-image>
+        <div ng-show="isAuthorized">
+            <hr>
+            <get-image-thumbnail></get-image-thumbnail>
+            <hr>
+            <delete-image></delete-image>
+        </div>
     </div>
 </body>
 
