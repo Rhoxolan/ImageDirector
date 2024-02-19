@@ -4,20 +4,16 @@ angular.
 
     templateUrl: 'auth/auth.template.html',
 
-    controller: function AuthController($http, $scope) {
+    controller: function AuthController($http, $scope, authService) {
 
-      var tokenKey = "image_wizard_access_token";
-      var userNameKey = "image_director_username";
       $scope.userName = null;
-      $scope.isAuthorized = false;
+      $scope.isAuthorized = authService.isAuthorized;
       $scope.hasError = false;
       $scope.errorMessage = null;
 
       $scope.init = function () {
-        let token = sessionStorage.getItem(tokenKey);
-        let userName = sessionStorage.getItem(userNameKey);
-        if(token && userName){
-          $scope.isAuthorized = true;
+        let userName = authService.check();
+        if(userName){
           $scope.userName = userName;
         }
       };
@@ -30,9 +26,7 @@ angular.
           })
             .then(function success(response) {
               document.getElementById("Password").value = '';
-              sessionStorage.setItem(userNameKey, $scope.userName);
-              sessionStorage.setItem(tokenKey, response.data.token);
-              $scope.isAuthorized = true;
+              authService.login($scope.userName, response.data.token);
               $scope.hasError = false;
               $scope.errorMessage = null;
             }, function (error) {
@@ -51,9 +45,7 @@ angular.
           })
             .then(function success(response) {
               document.getElementById("Password").value = '';
-              sessionStorage.setItem(userNameKey, $scope.userName);
-              sessionStorage.setItem(tokenKey, response.data.token);
-              $scope.isAuthorized = true;
+              authService.login($scope.userName, response.data.token);
               $scope.hasError = false;
               $scope.errorMessage = null;
             }, function (error) {
@@ -65,10 +57,8 @@ angular.
       }
 
       $scope.logout = function () {
-        sessionStorage.removeItem(tokenKey);
-        sessionStorage.removeItem(userNameKey);
+        authService.logout();
         $scope.userName = null;
-        $scope.isAuthorized = false;
       }
 
     }
