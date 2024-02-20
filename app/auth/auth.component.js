@@ -7,7 +7,7 @@ angular.
     controller: function AuthController($http, $scope, authService) {
 
       $scope.userName = null;
-      $scope.isAuthorized = authService.isAuthorized;
+      $scope.authData = authService.getAuthData();
       $scope.hasError = false;
       $scope.errorMessage = null;
 
