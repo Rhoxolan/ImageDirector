@@ -32,4 +32,15 @@ angular.module('ImageDirectorApp')
             return authData;
         }
 
+        this.getToken = function() {
+            let token = sessionStorage.getItem(tokenKey);
+            let userName = sessionStorage.getItem(userNameKey);
+            if(token && userName){
+                return token;
+            }
+            else {
+                this.logout();
+            }
+        }
+
     }]);
