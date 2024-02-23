@@ -13,6 +13,7 @@ angular.
       var authData = authService.getAuthData();
 
       $scope.click = function () {
+        debugger;
         if ($scope.id) {
           let url = `https://localhost:7050/api/images/${$scope.id}`;
           let config = {};
@@ -23,7 +24,7 @@ angular.
               return;
             }
             config.headers = {
-              'Authorization': 'Bearer ' + authService.getToken()
+              'Authorization': 'Bearer ' + token
             };
           }
 
