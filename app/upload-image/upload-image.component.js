@@ -13,7 +13,6 @@ angular.
       var authData = authService.getAuthData();
 
       $scope.click = function () {
-        debugger;
         if ($scope.imageUrl && $scope.imageUrl.length > 0) {
           let url = "https://localhost:7050/api/images";
           let data = {
